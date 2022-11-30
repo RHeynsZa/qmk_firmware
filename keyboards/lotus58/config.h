@@ -45,11 +45,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define DIODE_DIRECTION COL2ROW
 
 // Encoder support
-#define ENCODERS_PAD_A { }
-#define ENCODERS_PAD_B { }
-#define ENCODER_RESOLUTIONS { }
-
-#define ENCODER_RESOLUTIONS_RIGHT { 4 }
+#define ENCODERS_PAD_A { F4 }
+#define ENCODERS_PAD_B { F5 }
+#define ENCODER_RESOLUTIONS { 4 }
 
 // Define Communication
 #define USE_SERIAL
@@ -61,9 +59,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define SPLIT_LAYER_STATE_ENABLE
 
 #ifdef RGB_MATRIX_ENABLE
-#    define RGB_MATRIX_SPLIT {29, 29}
-#    define RGBLED_NUM 58
-#    define DRIVER_LED_TOTAL 58
+#    define RGB_MATRIX_SPLIT {35, 35}
+#    define RGBLED_NUM 70
+#    define DRIVER_LED_TOTAL 70
 #    define RGB_DISABLE_WHEN_USB_SUSPENDED // turn off effects when suspended
 #    define RGB_MATRIX_MAXIMUM_BRIGHTNESS 128
 #endif

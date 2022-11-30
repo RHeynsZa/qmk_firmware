@@ -11,9 +11,6 @@
 #define MATRIX_ROW_PINS { D4, C6, D7, E6, B4 }
 #define MATRIX_COL_PINS { B1, B2, B3, B6, F7, F6 }
 
-#define ENCODERS_PAD_A_RIGHT { F4 }
-#define ENCODERS_PAD_B_RIGHT { F5 }
-
 #define SPLIT_HAND_PIN B5
 
 // Detects USB and assigns master (Not recommended on Elite C/Pro Micro mix)

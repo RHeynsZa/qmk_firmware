@@ -20,54 +20,62 @@
 
 #define LED_MATRIX_CENTER {110, 21}
 
-led_config_t g_led_config = {
+ led_config_t g_led_config = {
+  {
+        // left hand switch matrix to led map
+        {  5,  4,  3,  2,   1,   0 },
+        {  6,  7,  8,  9,  10,  11 },
+        {  17, 16, 15, 14,  13, 12 },
+        {  18, 19, 20, 21, 22,  23 },
+        {  NO_LED, 28, 27, 26, 25, 24 },
+
+        // right hand switch matrix to led map
+        {  40, 39, 38, 37,  36,  35 },
+        {  41, 42, 43, 44,  45,  46 },
+        {  52, 51, 50, 49,  48,  47 },
+        {  53, 54, 55, 56,  57,  58 },
+        {  NO_LED, 63, 62, 61, 60, 59 }
+    },
     {
-        // Key Matrix to LED Index
-        { 5,  4,  3,  2,  1,  0},
-        { 6,  7,  8,  9, 10, 11},
-        {17, 16, 15, 14, 13, 12},
-        {18, 19, 20, 21, 22, 23},
-    {NO_LED, 28, 27, 26, 25, 24},
-
-                                        {34, 33, 32, 31, 30, 29},
-                                        {35, 36, 37, 38, 39, 40},
-                                        {46, 45, 44, 43, 42, 41},
-                                        {47, 48, 49, 50, 51, 52},
-                                {NO_LED, 57, 56, 55, 54, 53}
-    }, {
-        // LED Index to Physical Position
-        // The default expected range of values for `{ x, y }` is the inclusive range `{ 0..224, 0..64 }`
-        // 224 / (14 real cols + 6 cols as buffer) ~= 11 per col
-        // 64 / (5 real rows + 1 row as buffer) ~= 10 per row
-
-        // Left half
         { 55,  2}, { 44,  1}, { 33,  0}, { 22,  1}, { 11,  3}, {  0,  4},
         {  0, 14}, { 11, 13}, { 22, 11}, { 33, 10}, { 44, 11}, { 55, 12},
         { 55, 22}, { 44, 21}, { 33, 20}, { 22, 21}, { 11, 23}, {  0, 24},
         {  0, 34}, { 11, 33}, { 22, 31}, { 33, 30}, { 44, 31}, { 55, 32},
-        { 70, 27}, { 66, 40}, { 50, 42}, { 39, 41} ,{ 28, 40}, // bottom row, right to left, far outer right key is first
+        { 70, 27}, { 66, 40}, { 50, 42}, { 39, 41} ,{ 28, 40},
 
-        // Right half
+        { 34, 40}, { 63, 31}, { 6, 33},
+        { 4, 4},   { 29, 1},  { 49, 3},
+
         {165, 2}, {176, 1}, {187, 0}, {198, 1}, {209, 3}, {220, 4},
         {220, 14}, {209, 13}, {198, 11}, {187, 10}, {176, 11}, {165, 12},
         {165, 22}, {176, 21}, {187, 20}, {198, 21}, {209, 23}, {220, 24},
         {220, 34}, {209, 33}, {198, 31}, {187, 30}, {176, 31}, {165, 32},
-        {150, 27}, {154, 40}, {170, 42}, {181, 41}, {192, 40}, // bottom row, left to right, far outer left key is first
-    }, {
-        // LED Index to Flag
-        4, 4, 4, 4, 4, 4,
-        4, 4, 4, 4, 4, 4,
-        4, 4, 4, 4, 4, 4,
-        4, 4, 4, 4, 4, 4,
-        4, 4, 4, 4, 4,
+        {150, 27}, {154, 40}, {170, 42}, {181, 41}, {192, 40},
 
-        4, 4, 4, 4, 4, 4,
-        4, 4, 4, 4, 4, 4,
-        4, 4, 4, 4, 4, 4,
-        4, 4, 4, 4, 4, 4,
-        4, 4, 4, 4, 4
+        {187, 40}, {155, 31}, {215, 33},
+        {215, 4},  {193, 1},  {171, 3}
+    },
+    // led flags
+    {
+        LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT,
+        LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT,
+        LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT,
+        LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT,
+        LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT,
+
+        LED_FLAG_UNDERGLOW, LED_FLAG_UNDERGLOW, LED_FLAG_UNDERGLOW,
+        LED_FLAG_UNDERGLOW, LED_FLAG_UNDERGLOW, LED_FLAG_UNDERGLOW,
+
+        LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT,
+        LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT,
+        LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT,
+        LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT,
+        LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT, LED_FLAG_KEYLIGHT,
+
+        LED_FLAG_UNDERGLOW, LED_FLAG_UNDERGLOW, LED_FLAG_UNDERGLOW,
+        LED_FLAG_UNDERGLOW, LED_FLAG_UNDERGLOW, LED_FLAG_UNDERGLOW
     }
-};
+ };
 
 void suspend_power_down_kb(void) {
     rgb_matrix_set_suspend_state(true);
