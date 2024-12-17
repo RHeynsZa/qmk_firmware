@@ -17,11 +17,15 @@
         "tri_layer": true
     },
     "rgblight": {
+        "animations":{
+            "rainbow_mood": true
+        },
         "default": {
-            "val": 87
+            "val": 87,
+            "animation": "rainbow_mood"
         },
         "led_count": 70,
-        "max_brightness": 175,
+        "max_brightness": 125,
         "sleep": true,
         "split": true,
         "split_count": [35, 35]
